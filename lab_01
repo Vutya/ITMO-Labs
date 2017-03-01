@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+const unsigned int N=6;
+void shakerSort(int *a)
+{
+    int left = 1;
+    int right = N-1;
+    int swap;
+
+    while (left <= right)
+    {
+        for (int l = left;l <= right;l++)
+        {
+            if (a[l-1] > a[l])
+            {
+                swap = a[l-1];
+                a[l-1] = a[l];
+                a[l] = swap;
+            }
+        }
+        right--;
+
+        for (int r = right;r >= left;r--)
+        {
+            if (a[r-1] > a[r])
+            {
+                swap = a[r-1];
+                a[r-1] = a[r];
+                a[r] = swap;
+            }
+        }
+        left++;
+    }
+}
+
+int main()
+{
+    int test[N] = {5,2,4,6,1,3};
+    for (int i=0; i<N; i++)
+        cout<< test[i]<< " ";
+    cout << endl;
+    shakerSort(test);
+    for (int i=0; i<N; i++)
+        cout<< test[i]<< " ";
+    return 0;
+}
