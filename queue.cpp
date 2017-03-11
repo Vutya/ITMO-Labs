@@ -37,7 +37,7 @@ void PriorityQueue::heapify(int i)
         queue[largestChild] = temp;
         i = largestChild;
     }
-};
+}
 
 void PriorityQueue::push(int el)  // Добавляет элемент в очередь
 {
@@ -54,7 +54,7 @@ void PriorityQueue::push(int el)  // Добавляет элемент в оче
         i = parent;
         parent = (i - 1) / 2;
     }
-};
+}
 
 void PriorityQueue::pop()  // Удаляет верхний элемент из очереди
 {
@@ -63,11 +63,11 @@ void PriorityQueue::pop()  // Удаляет верхний элемент из 
     queue[0] = queue[queue.size()-1];
     queue.pop_back();
     heapify (0);
-};
+}
 
 int PriorityQueue::top()  //Возвращает верхний элемент очереди, не удаляя его
 {
     if (queue.empty())
         std::cerr << "Queue is empty.";
     return queue.front();
-};
+}
