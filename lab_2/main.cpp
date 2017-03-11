@@ -25,25 +25,25 @@ int main() {
     std::cout << a.top() << std::endl; // выводится вершина очереди после удаления 3-ёх элементов
 
     // создаётся вектор <5,4,6,3,2,8,2,29>
-    std::vector<int> nevector;
-    nevector.push_back(5);
-    nevector.push_back(4);
-    nevector.push_back(6);
-    nevector.push_back(3);
-    nevector.push_back(2);
-    nevector.push_back(8);
-    nevector.push_back(2);
-    nevector.push_back(29);
+    std::vector<int> notvector;
+    notvector.push_back(5);
+    notvector.push_back(4);
+    notvector.push_back(6);
+    notvector.push_back(3);
+    notvector.push_back(2);
+    notvector.push_back(8);
+    notvector.push_back(2);
+    notvector.push_back(29);
 
-    for (int i = 0; i < nevector.size(); i++)
-        std::cout << nevector [i]<< " ";
+    for (int i = 0; i < notvector.size(); i++)
+        std::cout << notvector [i]<< " ";
     std::cout << std::endl;
 
     // пирамидальная сортировка вектора
-    heapsort(nevector);
+    heapsort(notvector);
 
-    for (int i = 0; i < nevector.size(); i++)
-        std::cout << nevector [i]<< " ";
+    for (int i = 0; i < notvector.size(); i++)
+        std::cout << notvector [i]<< " ";
 
     return 0;
 }
