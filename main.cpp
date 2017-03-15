@@ -22,7 +22,7 @@ int Partition (int *a,int t,int l)
 
 int MedianPartition(int *a,int p,int r)
 {
-    int mid = a[r/2];
+    int mid = a[p+(r-p)/2];
     int left = a[p];
     int right = a[r];
     if((left > mid) && (left < right) || (left < mid) && (left > right))
