@@ -42,7 +42,6 @@ int MedianPartition(int *a,int p,int r)
             else
                 break;
         }
-        cout << "r="<< r << " p=" << p << " el1=" <<el1 << " el2=" << el2 << " el3=" << el3 << endl;
         if((el2 > el1) && (el2 < el3) || (el2 < el1) && (el2 > el3))
         {
             swap (a[el2],a[r]);
