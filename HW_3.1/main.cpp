@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -22,18 +23,42 @@ int Partition (int *a,int t,int l)
 
 int MedianPartition(int *a,int p,int r)
 {
-    int mid = a[p+(r-p)/2];
-    int left = a[p];
-    int right = a[r];
-    if((left > mid) && (left < right) || (left < mid) && (left > right))
+    if (r-p > 2)
     {
-        swap (left,right);
+        int el1 = rand() % (r-p+1) + p;
+        int el2 = rand() % (r-p+1) + p;
+        int el3 = rand() % (r-p+1) + p;
+        while (true)
+        {
+            if ((el2 == el1)||(el2 == el3))
+                el2 = rand() % (r-p+1) + p;
+            else
+                break;
+        }
+        while (true)
+        {
+            if ((el3 == el1)||(el3 == el2))
+                el3 = rand() % (r-p+1) + p;
+            else
+                break;
+        }
+        cout << "r="<< r << " p=" << p << " el1=" <<el1 << " el2=" << el2 << " el3=" << el3 << endl;
+        if((el2 > el1) && (el2 < el3) || (el2 < el1) && (el2 > el3))
+        {
+            swap (a[el2],a[r]);
+        }
+        else if((el1 > el2) && (el1 < el3) || (el1 < el2) && (el1 > el3))
+        {
+            swap (a[el1],a[r]);
+        }
+        else if((el3 > el2) && (el3 < el1) || (el3 < el2) && (el3 > el1))
+        {
+            swap (a[el3],a[r]);
+        }
+        return Partition(a,p,r);
     }
-    else if((mid > left) && (mid < right) || (mid < left) && (mid > right))
-    {
-        swap (mid,right);
-    }
-    return Partition(a,p,r);
+    else
+        return Partition(a,p,r);
 }
 
 void QuickSort (int *a,int p,int r)
