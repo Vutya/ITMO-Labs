@@ -1,4 +1,4 @@
-// Sorts from 0 to 120
+// Sorts numbers from 0 to 120
 #include <iostream>
 #include <vector>
 #include <algorithm>
