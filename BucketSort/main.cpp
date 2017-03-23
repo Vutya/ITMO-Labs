@@ -1,4 +1,3 @@
-// Sorts numbers from 0 to 120
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,32 +6,41 @@ using namespace std;
 
 typedef unsigned int uint;
 
-void bucketSort(vector<uint> &vec)
+uint buckets(vector<uint> &a)
 {
-    vector<vector<uint>> b(11);
+    int max=a[0];
+    for (int i = 1; i<a.size();i++)
+        if (a[i]>max)
+            max=a[i];
+    max = sqrt(max)+1;
+    return max;
+}
+void bucketSort(vector<uint> &vec,uint n)
+{
+    vector<vector<uint>> b(n);
     for (int i=0; i<vec.size(); i++)
     {
-        int ind = vec[i]/11;
+        int ind = vec[i]/n;
         b[ind].push_back(vec[i]);
     }
-    for (int i=0; i<11; i++)
+    for (int i=0; i<n; i++)
         sort(b[i].begin(), b[i].end());
     int index = 0;
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < n; i++)
         for (int j = 0; j < b[i].size(); j++)
             vec[index++] = b[i][j];
 }
 
 int main()
 {
-    vector<uint> arr = {89,99,120,55,6,0,0,55,120,14,66,3,78,4};
+    vector<uint> arr = {89,99,120,121,55,14,66,3,78,4};
     int n = arr.size();
-    cout << "WARNING: This algorithm sorts only numbers from 0 to 120."<<endl;
     cout << "Unsorted vector is ";
     for (int i=0; i<n; i++)
         cout << arr[i] << " ";
     cout<<endl;
-    bucketSort(arr);
+    int k = buckets(arr);
+    bucketSort(arr,k);
     cout << "Sorted vector is ";
     for (int i=0; i<n; i++)
         cout << arr[i] << " ";
