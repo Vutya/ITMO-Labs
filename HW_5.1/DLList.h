@@ -19,7 +19,6 @@ public:
     void display();
     int size();
 private:
-private:
     Node *Head;
     Node *Tail;
 };
