@@ -16,6 +16,7 @@ class BST
 {
 public:
     BST();
+    int getRootKey();
     void Insert(int x);
     int Max(Node * k);
     int Min(Node * k);

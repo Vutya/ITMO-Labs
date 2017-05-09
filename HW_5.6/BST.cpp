@@ -10,6 +10,11 @@ BST::BST()
     root=nullptr;
 };
 
+int BST::getRootKey()
+{
+    return root->key;
+}
+
 int BST::Max(Node * k)
 {
     if (root) {
