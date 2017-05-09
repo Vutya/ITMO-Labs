@@ -20,6 +20,9 @@ int main() {
     std::cout <<std::endl;
     test.Delete(7);
     test.InorderTreeWalk(test.Search(5));
+    std::cout <<std::endl;
+    test.Delete(5);
+    test.InorderTreeWalk(test.Search(6));
     int k = test.Max(nullptr);
     int b = test.Min(nullptr);
     std::cout <<std::endl<< k << " " <<b << " "<<std::endl;
