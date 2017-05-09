@@ -12,12 +12,16 @@ int main() {
     test.Insert(7);
     test.Insert(2);
     test.Insert(1);
-    test.Delete(6);
+    test.Delete(-6);
+    test.InorderTreeWalk(test.Search(5));
+    std::cout <<std::endl;
+    test.Delete(2);
+    test.InorderTreeWalk(test.Search(5));
+    std::cout <<std::endl;
     test.Delete(7);
     test.InorderTreeWalk(test.Search(5));
     int k = test.Max(nullptr);
     int b = test.Min(nullptr);
     std::cout <<std::endl<< k << " " <<b << " "<<std::endl;
-    test.Insert(1);
     return 0;
 }

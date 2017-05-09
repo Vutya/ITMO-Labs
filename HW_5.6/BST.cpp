@@ -100,7 +100,6 @@ void BST::Delete(int x)
             Transplant(z, z->left);
         else {
             Node *y = Search(Min(z->right));
-            std::cout<<y->key;
             if (y->parent != z) {
                 Transplant(y, y->right);
                 y->right = z->right;
